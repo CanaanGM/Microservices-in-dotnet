@@ -55,7 +55,22 @@ services:
     volumes: 
       - "./Redis-data:/data"
     restart: always
+
+
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    restart: always
+    ports:
+      - "8080:8000"
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
     
 
 volumes:
-  db-data:
+  mongo-db-data:
+  Redis-data: 
+  portainer_data:
