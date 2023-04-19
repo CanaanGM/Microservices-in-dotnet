@@ -349,3 +349,6 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /src/mongo-db-data
+/src/postgres_db-data
+/src/Redis-data/dump.rdb
+/src/Redis-data

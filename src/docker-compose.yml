@@ -42,6 +42,7 @@ services:
       dockerfile: Services/Basket/Basket.API/Dockerfile
     ports:
       - "5002:80"
+    container_name: Basket-API
       
     depends_on:
        - basket-cache
@@ -70,7 +71,34 @@ services:
 
     
 
+  discount.api:
+    image: ${DOCKER_REGISTRY-}discountapi
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.API/Dockerfile
+    ports:
+      - "5003:80"
+    depends_on:
+      - dic-gress
+    container_name: Discount-API
+
+
+  dic-gress:
+    image: postgres
+    environment:
+      - POSTGRES_USER=admin # ${from .env in the future}
+      - POSTGRES_PASSWORD=admin1234
+    restart: always
+    ports:
+        - "5434:5432"
+    volumes:
+      - ./postgres_db-data:/var/lib/postgresql/data/
+    container_name: Discount-PostgresDB
+
+
 volumes:
   mongo-db-data:
   Redis-data: 
   portainer_data:
+  postgres_db-data:
+

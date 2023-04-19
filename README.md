@@ -39,6 +39,22 @@ example project to better understand how microservices architecture function.
 
 ----
 
+### Discount
+
+> 
+
+- repo pattern w/ postgress
+- port: **5003**
+- REST CRUD
+- Dapper as the *smol* ORM
+- Layered architecture - separated by folders not projects
+    - **Infrastructer** layer for **Data Access** and presistence of business state
+    - **Domain layer** for **Business** logic
+        - the *heart* of the application
+    - **API/Application** layer for **Presentation** layer, *controllers* in this case
+        - data transmission 2 user/other services
+
+----
 
 ### [portainer](https://docs.portainer.io/start/intro)
 

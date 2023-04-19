@@ -9,3 +9,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
 
+
+  discount.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+
