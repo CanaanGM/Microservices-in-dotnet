@@ -12,8 +12,6 @@ services:
     depends_on:
       - mongoProduct
 
-
-
   mongoProduct:
     image: mongo:latest
     ports:
@@ -36,6 +34,28 @@ services:
 
     container_name: product-mongo
 
+
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.API/Dockerfile
+    ports:
+      - "5002:80"
+      
+    depends_on:
+       - basket-cache
+
+  basket-cache:
+    image: "redis"
+    # command: redis-server --save 20 1 --loglevel warning --requirepass RediIsLocalYo!
+    ports:
+     - "6380:6379" 
+    container_name: basketRedisCache
+    volumes: 
+      - "./Redis-data:/data"
+    restart: always
+    
 
 volumes:
   db-data:
