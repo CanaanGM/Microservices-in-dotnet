@@ -1,3 +1,6 @@
+using Catalog.API.Data;
+using Catalog.API.Repositories;
+
 namespace Catalog.API
 {
     public class Program
@@ -13,13 +16,18 @@ namespace Catalog.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+            builder.Services.AddScoped<ICatalogContext, CatalogContext>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog.API v1"));
             }
 
             app.UseAuthorization();
