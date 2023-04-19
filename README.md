@@ -7,13 +7,37 @@ example project to better understand how microservices architecture function.
 
 ### Catalog
 
-- repo pattern w/ mongo db
+> responsible for the information of the protduct catalog.
+
+- REST CRUD 
 - port: **5001**
+- repo pattern w/ mongo db
+- Layered architecture - separated by folders not projects
+    - **Infrastructer** layer for **Data Access** and presistence of business state
+    - **Domain layer** for **Business** logic
+        - the *heart* of the application
+    - **API/Application** layer for **Presentation** layer, *controllers* in this case
+        - data transmission 2 user/other services
+
+
+----
 
 ### Basket
 
+> Responsible for the users basket and checkout
+
 - repo pattern w/ redis-cache
 - port: **5002**
+- REST CRUD
+- Layered architecture - separated by folders not projects
+    - **Infrastructer** layer for **Data Access** and presistence of business state
+    - **Domain layer** for **Business** logic
+        - the *heart* of the application
+    - **API/Application** layer for **Presentation** layer, *controllers* in this case
+        - data transmission 2 user/other services
+
+
+----
 
 
 ### [portainer](https://docs.portainer.io/start/intro)
