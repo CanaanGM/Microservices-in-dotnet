@@ -71,6 +71,14 @@ example project to better understand how microservices architecture function.
 - Fluent Validation 
 - EF CORE 
 
+#### Layers
+- Core 
+    - Domain
+        - includes [domain]() only objects
+        - [ValueObject - Docs](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects)
+    - Application : Domain
+- Infrastrucure  : Application
+- API : Application, Infra
 
 ----
 
