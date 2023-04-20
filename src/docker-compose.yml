@@ -30,7 +30,9 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
-      ME_CONFIG_MONGODB_URL: mongodb://root:mongoProduct@mongo:27017/
+      #ME_CONFIG_MONGODB_URL: mongodb://root:root@mongoProduct:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://mongoProduct:27017/  # can add auth lator
+
 
     container_name: product-mongo
 
