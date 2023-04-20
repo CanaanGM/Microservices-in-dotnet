@@ -61,6 +61,14 @@ example project to better understand how microservices architecture function.
 - Dapper as the *smol* ORM
 - 
 
+---
+
+### Ordering API
+
+- REST API w/ CRUD
+- DDD, CQRS w/ MediatR, Clean Architecture
+- Fluent Validation 
+- EF CORE 
 
 
 ----
