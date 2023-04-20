@@ -41,6 +41,7 @@ example project to better understand how microservices architecture function.
 
 ### Discount
 
+#### API
 > 
 
 - repo pattern w/ postgress
@@ -53,6 +54,14 @@ example project to better understand how microservices architecture function.
         - the *heart* of the application
     - **API/Application** layer for **Presentation** layer, *controllers* in this case
         - data transmission 2 user/other services
+
+#### gRPC
+
+- port: **5004**
+- Dapper as the *smol* ORM
+- 
+
+
 
 ----
 

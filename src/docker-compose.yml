@@ -30,7 +30,7 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
-      ME_CONFIG_MONGODB_URL: mongodb://root:localhost@mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://root:mongoProduct@mongo:27017/
 
     container_name: product-mongo
 
@@ -96,9 +96,22 @@ services:
     container_name: Discount-PostgresDB
 
 
+  discount.grpc:
+    image: ${DOCKER_REGISTRY-}discountgrpc
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.gRPC/Dockerfile
+    ports:
+      - "5004:80"
+    container_name: Discount-GRPC
+    depends_on:
+      - dic-gress
+
+
 volumes:
   mongo-db-data:
   Redis-data: 
   portainer_data:
   postgres_db-data:
+
 

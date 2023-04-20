@@ -15,3 +15,10 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
 
 
+
+  discount.grpc:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+

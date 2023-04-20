@@ -1,6 +1,9 @@
 using Discount.gRPC.Extensions;
+using Discount.gRPC.Protos;
 using Discount.gRPC.Repositories;
 using Discount.gRPC.Services;
+
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace Discount.gRPC
 {
@@ -18,12 +21,23 @@ namespace Discount.gRPC
             builder.Services.AddAutoMapper(typeof(Program));
             builder.Services.AddGrpc();
 
+
+            builder.WebHost.ConfigureKestrel(options =>
+            {
+                // Setup a HTTP/2 endpoint without TLS.
+                options.ListenAnyIP(5004, o => o.Protocols = HttpProtocols.Http2);
+            });
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
-            app.MapGrpcService<DiscountService>();
+
 
             app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
+
+            app.MapGrpcService<DiscountService>();
+
 
             app.MigrateDatabase<Program>();
 
