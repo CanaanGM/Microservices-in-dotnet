@@ -67,6 +67,7 @@ example project to better understand how microservices architecture function.
 
 - REST API w/ CRUD
 - DDD, CQRS w/ MediatR, Clean Architecture
+- this [DDD](https://en.wikipedia.org/wiki/Domain-driven_design), not this [DDD](https://yugipedia.com/wiki/D/D/D)
 - Fluent Validation 
 - EF CORE 
 
