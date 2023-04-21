@@ -110,10 +110,25 @@ services:
       - dic-gress
 
 
+
+
+  sqlServerOrderingDB:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      SA_PASSWORD: "DiLb984ImW"
+      ACCEPT_EULA: "Y"
+    ports:
+     - "1435:1433"
+    container_name: Ordering-Database
+    volumes:
+      - "./SqlServer-db-data:/var/opt/mssql/data"
+    restart: always
+
+
 volumes:
   mongo-db-data:
   Redis-data: 
   portainer_data:
   postgres_db-data:
-
+  SqlServer-db-data:
 
