@@ -3,7 +3,7 @@
 using Ordering.Application.Features.Orders.Commands.CheckoutOrder;
 using Ordering.Application.Features.Orders.Commands.UpdateOrder;
 using Ordering.Application.Features.Orders.Queries.GetOrdersList;
-using Ordering.Domain.Entites;
+using Ordering.Domain.Entities;
 
 using System;
 using System.Collections.Generic;
