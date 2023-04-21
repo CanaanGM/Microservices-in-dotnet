@@ -74,9 +74,14 @@ example project to better understand how microservices architecture function.
 #### Layers
 - Core 
     - Domain
-        - includes [domain]() only objects
+        - includes [domain](https://medium.com/nick-tune-tech-strategy-blog/domains-subdomain-problem-solution-space-in-ddd-clearly-defined-e0b49c7b586c) only objects
         - [ValueObject - Docs](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/implement-value-objects)
     - Application : Domain
+        - for everything related to Business
+        - Folders:
+            - Contracts  : Application Capabilities ; Abstractions and Interfaces
+            - Behaviours : Contains Behaviours/Cross cutting concerns that apply when using the implementation ; Validation for example
+            - Features   : CQRS related stuff that handles business cases
 - Infrastrucure  : Application
 - API : Application, Infra
 
