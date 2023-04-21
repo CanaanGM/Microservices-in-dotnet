@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ordering.Domain.Entites
+namespace Ordering.Domain.Entities
 {
     public class Order : EntityBase
     {
