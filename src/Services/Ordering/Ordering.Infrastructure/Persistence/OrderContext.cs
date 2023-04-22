@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
 using Ordering.Domain.Common;
 using Ordering.Domain.Entities;
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,6 +17,15 @@ namespace Ordering.Infrastructure.Persistence
 
         public DbSet<Order> Orders { get; set; }
 
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Order>().Property(o => o.TotalPrice).HasPrecision(12, 10);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach (var entry in ChangeTracker.Entries<EntityBase>())
@@ -23,11 +34,11 @@ namespace Ordering.Infrastructure.Persistence
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedDate = DateTime.Now;
-                        entry.Entity.CreatedBy = "dante";
+                        entry.Entity.CreatedBy = "swn";
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModifiedDate = DateTime.Now;
-                        entry.Entity.LastModifiedBy = "dante";
+                        entry.Entity.LastModifiedBy = "swn";
                         break;
                 }
             }
