@@ -19,12 +19,6 @@ namespace Ordering.Infrastructure.Persistence
 
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Order>().Property(o => o.TotalPrice).HasPrecision(12, 10);
-
-            base.OnModelCreating(modelBuilder);
-        }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
@@ -34,11 +28,11 @@ namespace Ordering.Infrastructure.Persistence
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedDate = DateTime.Now;
-                        entry.Entity.CreatedBy = "swn";
+                        entry.Entity.CreatedBy = "Dante";
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModifiedDate = DateTime.Now;
-                        entry.Entity.LastModifiedBy = "swn";
+                        entry.Entity.LastModifiedBy = "Dante";
                         break;
                 }
             }

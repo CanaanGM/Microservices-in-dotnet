@@ -12,7 +12,7 @@ using Ordering.Infrastructure.Persistence;
 namespace Ordering.Infrastructure.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    [Migration("20230422141311_intial")]
+    [Migration("20230422153759_intial")]
     partial class intial
     {
         /// <inheritdoc />
@@ -79,8 +79,7 @@ namespace Ordering.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasPrecision(12, 10)
-                        .HasColumnType("decimal(12,10)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
