@@ -125,10 +125,22 @@ services:
     restart: always
 
 
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+    ports:
+      - "5005:80"
+    depends_on:
+      - sqlServerOrderingDB
+    container_name: orderingAPI
+
 volumes:
   mongo-db-data:
   Redis-data: 
   portainer_data:
   postgres_db-data:
   SqlServer-db-data:
+
 
