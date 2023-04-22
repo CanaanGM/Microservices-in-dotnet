@@ -113,8 +113,7 @@ services:
 
 
   sqlServerOrderingDB:
-    image: "mcr.microsoft.com/mssql/server"
-    user: root
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
     environment:
       SA_PASSWORD: "DiLb984ImW"
       ACCEPT_EULA: "Y"
