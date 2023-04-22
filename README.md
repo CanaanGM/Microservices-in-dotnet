@@ -85,6 +85,14 @@ example project to better understand how microservices architecture function.
 - Infrastrucure  : Application
 - API : Application, Infra
 
+
+migrate and apply
+
+```bash
+    dotnet ef migrations add initial -p .\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj -s .\Ordering\Ordering.API\Ordering.API.csproj
+    dotnet ef database update -p .\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj -s .\Ordering\Ordering.API\Ordering.API.csproj
+```
+
 ----
 
 ### [portainer](https://docs.portainer.io/start/intro)
