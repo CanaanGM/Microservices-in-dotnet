@@ -143,3 +143,8 @@ the basket emmits an event message the the orders consume it.
 
 ----
 
+### [Ocelot](https://github.com/ThreeMammals/Ocelot) BFF
+
+> creates a Facade around the exposed API endpoints, you'd have to create multiple Facades depending on the requirements.
+
+> don't put all ur Requests in One basket xD.
