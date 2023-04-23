@@ -1,8 +1,11 @@
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+
 namespace OceltotApiGateway
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -13,13 +16,20 @@ namespace OceltotApiGateway
             });
 
 
+            builder.Services.AddOcelot();
+
+
+
             var app = builder.Build();
 
             
 
             app.MapGet("/", () => "Hello World!");
 
-            app.Run();
+
+            await app.UseOcelot();
+            
+            await app.RunAsync();
         }
     }
 }
