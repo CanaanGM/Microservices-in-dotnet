@@ -29,3 +29,10 @@ services:
     ports:
       - "80"
 
+
+  oceltotapigateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
+
