@@ -5,6 +5,27 @@ example project to better understand how microservices architecture function.
 
 # Services
 
+- when applying migrations, it helps to override the connection string of the serivce in `docker-compose.yml`.
+
+like a so:
+```yml
+catalog.api:
+    environment:
+      - "Connection string here!!"
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+    ports:
+      - "5001:80"
+    container_name: Catalog-API
+    depends_on:
+      - mongoProduct
+
+```
+
+---
+
 ### Catalog
 
 > responsible for the information of the protduct catalog.
