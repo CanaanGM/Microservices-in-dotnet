@@ -101,3 +101,24 @@ migrate and apply
 - ports:
     - 8080
     - 9000 <- used one for the web interface
+
+
+
+----
+
+### Building Block
+
+> houses all the common things between the services, like the message classes
+
+
+
+----
+
+### Rabbit MQ and masstransit
+
+> connect both the basket and the orders services via a shared queue
+
+the basket emmits an event message the the orders consume it.
+
+----
+
