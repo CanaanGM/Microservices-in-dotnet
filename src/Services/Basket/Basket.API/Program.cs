@@ -48,7 +48,6 @@ namespace Basket.API
                 });
             });
 
-            //builder.Services.AddMassTransitHostedService();
 
             builder.Services.AddAutoMapper(typeof(Program));
 
