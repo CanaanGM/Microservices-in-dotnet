@@ -1,7 +1,10 @@
 # Microservices-in-dotnet
 
-example project to better understand how microservices architecture function.
+> example project to better understand how microservices architecture function.
 
+what parts of it were developed here :
+
+![archetcure](/static/Architecture.png)
 
 # Services
 
@@ -148,3 +151,10 @@ the basket emmits an event message the the orders consume it.
 > creates a Facade around the exposed API endpoints, you'd have to create multiple Facades depending on the requirements.
 
 > don't put all ur Requests in One basket xD.
+
+----
+
+### Request aggregrator
+
+> creates a facade for the user; instead of them sending (n) requests they only have to send one,
+the aggregrator takes care of aggregrating the relavent info then returns it to the requester in a single DTO.
